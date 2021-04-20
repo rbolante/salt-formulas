@@ -1,0 +1,10 @@
+{% set language = salt['pillar.get']('jira:language', 'en') %}
+{% set installdir = salt['pillar.get']('jira:installdir', '/opt/atlassian/jira') %}
+# This file is managed by {{ grains['saltversion'] }}
+# install4j response file for JIRA 6.2
+executeLauncherAction$Boolean=true
+app.install.service$Boolean=true
+existingInstallationDir=/opt/JIRA
+sys.confirmedUpdateInstallationString=false
+sys.languageId={{ language }}
+sys.installationDir={{ installdir }}
